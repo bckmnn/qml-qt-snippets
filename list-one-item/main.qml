@@ -7,14 +7,7 @@ Window {
     width: 500
     height: 300
 
-    MouseArea {
-        anchors.fill: parent
-        onClicked: {
-            Qt.quit();
-        }
-    }
-
-    ListModel {
+    ListModel {                         // data source for PathView
         id: myModel
         ListElement {
             name: "Red"
@@ -37,7 +30,6 @@ Window {
             width: 150
             height: 150
             Rectangle {
-                anchors.horizontalCenter: nameText.horizontalCenter
                 anchors.fill: parent
                 color: rectColor
             }
@@ -52,6 +44,9 @@ Window {
     }
 
     PathView{
+        id: pathView
+        y: 20
+        x: (parent.width-pathView.width)/2 // center pathView horizontaly
         width: 150
         height: 150
         model: myModel
@@ -69,14 +64,14 @@ Window {
             Qt.quit();
         }
 
-        preferredHighlightBegin: 0.5
-        preferredHighlightEnd: 0.5
-        pathItemCount: 1
+        preferredHighlightBegin: 0.5      // to center currentItem on PathView
+        preferredHighlightEnd: 0.5        // path.
+        pathItemCount: 1                  // show exactly one Item on Path
         snapMode:PathView.SnapOneItem
 
         path: Path {
-            startX: width/2; startY: 0
-            PathLine{ x:width/2; y:150}
+            startX: pathView.width/2; startY: 0                 // start path in top center of PathView
+            PathLine{ x:pathView.width/2; y:pathView.height}    // end path on bottom center of PathView
         }
     }
 
