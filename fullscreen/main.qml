@@ -29,7 +29,8 @@ Window {
             if(event.key === Qt.Key_F){
                 if(mainWindow.visibility ==  Window.FullScreen){
                     mainWindow.hide();  // workaround for osx, not needed on windows
-                                        // without it you would get a white window
+                                        // without it you would get a white window. at
+                                        // least on my macbook with qt 5.3
                     mainWindow.showNormal();
                 }else{
                     mainWindow.hide();  // workaround for osx, not needed on windows
@@ -59,6 +60,12 @@ Window {
             height: 20
             x: stage.width - 40
             y: stage.height - 40
+        }
+
+        Text {
+            anchors.centerIn: parent
+            color: "#666666"
+            text: "hit ESC to quit\nhit F to toggle fullscreen"
         }
     }
 }
