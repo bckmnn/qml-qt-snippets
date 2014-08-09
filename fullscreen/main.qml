@@ -6,6 +6,7 @@ Window {
     visible: true
     width: 500
     height: 300
+    flags: Qt.Window | Qt.WindowFullscreenButtonHint  // flag needed on osx for correct behavior
 
     color: "#000000"
 
@@ -28,13 +29,8 @@ Window {
         Keys.onPressed: {
             if(event.key === Qt.Key_F){
                 if(mainWindow.visibility ==  Window.FullScreen){
-                    mainWindow.hide();  // workaround for osx, not needed on windows
-                                        // without it you would get a white window. at
-                                        // least on my macbook with qt 5.3
                     mainWindow.showNormal();
                 }else{
-                    mainWindow.hide();  // workaround for osx, not needed on windows
-                                        // without it you would get a white window
                     mainWindow.showFullScreen();
                 }
                 event.accepted = true;  // prevent event from bubbling upwards
