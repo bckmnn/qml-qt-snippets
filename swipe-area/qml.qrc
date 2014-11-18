@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>main.cpp</file>
+        <file>components/SwipeArea.qml</file>
+    </qresource>
+</RCC>
