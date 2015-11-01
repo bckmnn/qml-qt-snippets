@@ -1,0 +1,2 @@
+module customstyle
+singleton RedStyle 1.0 RedStyle.qml
